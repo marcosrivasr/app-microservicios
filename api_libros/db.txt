@@ -1,0 +1,7 @@
+CREATE TABLE libros (
+    id int AUTO_INCREMENT,
+    title varchar(255),
+    cover varchar(255),
+    id_user varchar(255),
+    PRIMARY KEY(id)
+);
