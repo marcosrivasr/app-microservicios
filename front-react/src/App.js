@@ -8,6 +8,22 @@ import './App.css';
 
 function App() {
 
+/*   return (
+    <div>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+
+        </Switch>
+      </BrowserRouter>
+    </div>
+  ); */
+
   const { token, setToken } = useToken();
 
   if(!token) {

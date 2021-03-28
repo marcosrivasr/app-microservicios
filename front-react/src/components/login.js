@@ -13,7 +13,7 @@ export default function Login({ setAccessToken }) {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        const data = await fetch('http://localhost:3001/auth', {
+        const data = await fetch('http://localhost:5555/auth', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -22,11 +22,16 @@ export default function Login({ setAccessToken }) {
         });
 
         const res = await data.json();
+        if(!res.token){
+            console.error('Usuario y/o contraseña incorrecta');
+        }else{
+            console.log('correcto');
+            localStorage.setItem('token', res.token);
+            setToken(res.token);
+    
+            console.log(res);
+        }
 
-        localStorage.setItem('token', res.token);
-        setToken(res.token);
-
-        console.log(res);
     }
 
     if(setAccessToken != undefined) return <Redirect to="/home" />
