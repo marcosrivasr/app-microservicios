@@ -14,6 +14,8 @@ class Database{
         $this->user = constant('USER');
         $this->password = constant('PASSWORD');
         $this->charset = constant('CHARSET');
+
+        //error_log("***********************\n{$this->host}\n{$this->db}\n{$this->user}\n{$this->password}");
     }
 
     function connect(){
@@ -27,6 +29,7 @@ class Database{
             $pdo = new PDO($connection, $this->user, $this->password, $options);
             return $pdo;
         }catch(PDOException $e){
+            //error_log('error**********************');
             print_r('Error connection: ' . $e->getMessage());
         }
     }

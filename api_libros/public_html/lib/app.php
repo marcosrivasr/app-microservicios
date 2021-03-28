@@ -7,20 +7,15 @@ class App{
 
         $url = isset($_GET['url']) ? $_GET['url']: null;
         $url = rtrim($url, '/');
-        //var_dump($url);
-        /*
-            controlador->[0]
-            metodo->[1]
-            parameter->[2]
-        */
+
         $url = explode('/', $url);
 
         // cuando se ingresa sin definir controlador
         if(empty($url[0])){
-            $archivoController = 'controllers/login.php';
+            $archivoController = 'controllers/api.php';
             require_once $archivoController;
-            $controller = new Login();
-            $controller->loadModel('login');
+            $controller = new API();
+            $controller->loadModel('api');
             $controller->render();
             return false;
         }

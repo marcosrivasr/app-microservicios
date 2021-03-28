@@ -1,6 +1,7 @@
 <?php
 
-include_once 'lib/imodel.php';
+include_once 'imodel.php';
+include_once 'database.php';
 
 class Model{
 
